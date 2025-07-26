@@ -1,3 +1,6 @@
+# visualize_dataset
+
+```
 python lerobot/scripts/visualize_dataset.py --help
 usage: visualize_dataset.py [-h] --repo-id REPO_ID --episode-index EPISODE_INDEX [--root ROOT]
                             [--output-dir OUTPUT_DIR] [--batch-size BATCH_SIZE]
@@ -33,3 +36,4 @@ options:
                         Tolerance in seconds used to ensure data timestamps respect the dataset fps
                         valueThis is argument passed to the constructor of LeRobotDataset and maps to
                         its tolerance_s constructor argumentIf not given, defaults to 1e-4.
+```
