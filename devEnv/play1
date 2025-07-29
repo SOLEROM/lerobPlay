@@ -1,0 +1,57 @@
+
+
+
+
+
+
+
+## (2) Evaluate a pretrained policy
+
+
+his does not train the model — only runs inference
+
+pretrained model hosted on lerobot/diffusion_pusht:
+
+ref : https://github.com/huggingface/lerobot/tree/8d7969e7cb8b5c433872a7a9a85d132100cced8a?tab=readme-ov-file#evaluate-a-pretrained-policy
+
+
+python examples/2_dw_only.py
+du -h ~/.cache/huggingface/hub/models--lerobot--diffusion_pusht 
+
+OR
+
+git lfs install 
+Updated git hooks.
+Git LFS initialized.
+git clone https://huggingface.co/lerobot/diffusion_pusht
+
+
+
+
+python lerobot/scripts/eval.py \
+    --policy.path=lerobot/diffusion_pusht \
+    --env.type=pusht \
+    --eval.batch_size=10 \
+    --eval.n_episodes=10 \
+    --policy.use_amp=false \
+
+python lerobot/scripts/eval.py \
+    --policy.path=lerobot/diffusion_pusht \
+    --env.type=pusht \
+    --eval.batch_size=1 \
+    --eval.n_episodes=1 \
+    --policy.use_amp=false \
+    --policy.device=cpu
+
+EBUG: self.space is <class 'pymunk.space.Space'>251/300 [05:59<01:04,  1.32s/it, running_success_rate=0.0
+Stepping through eval batches: 100%|█████████| 1/1 [05:59<00:00, 359.81s/it, running_success_rate=100.0%]
+{'avg_sum_reward': 114.30152332450015, 'avg_max_reward': 1.0, 'pc_success': 100.0, 'eval_s': 360.2152349948883, 'eval_ep_s': 360.2152361869812}
+INFO 2025-06-14 16:19:22 pts/eval.py:501 End of eval
+
+## 
+Reproduce state-of-the-art (SOTA)
+
+https://huggingface.co/lerobot
+
+python lerobot/scripts/train.py --config_path=lerobot/diffusion_pusht
+
